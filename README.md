@@ -1,5 +1,7 @@
 # Test case for replicating problems when attempting to run a Micronaut Lambda under an AWS ALB
 
+### See https://github.com/micronaut-projects/micronaut-core/issues/9160
+
 ## Prerequisites
 
 - Java 11
