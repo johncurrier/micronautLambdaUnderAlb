@@ -1,0 +1,47 @@
+// don't build this directly.
+//  use 'cdk deploy'
+//  that will invoke our 'run' task
+//
+// deploys to an AWS Lambda by default
+
+buildscript {
+	ext {
+		micronautVersion = '3.9.0'
+	}
+}
+
+plugins {
+	id "io.freefair.lombok" version "6.4.3.+"
+	id "application"
+	id "java"
+}
+
+System.out.println("Building app stack for a Lambda running under ALB")
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation platform("io.micronaut:micronaut-bom:${micronautVersion}")
+	implementation "io.micronaut.aws:micronaut-aws-cdk:${micronautVersion}"
+	implementation "software.amazon.awssdk:lambda:2.20.51"
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+}
+
+java {
+	sourceCompatibility = JavaVersion.toVersion("11")
+	targetCompatibility = JavaVersion.toVersion("11")
+}
+
+application {
+	mainClass.set("com.example.fubar.LambdaAlbAppStack")
+}
+
+// make sure we're deploying the latest
+run.dependsOn(':app:shadowJar')
+
+clean {
+	delete "cdk.out"
+}

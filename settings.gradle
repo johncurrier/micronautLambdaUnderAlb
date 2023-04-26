@@ -1,0 +1,4 @@
+rootProject.name="micronautLambdaUnderAlb"
+
+include("app")
+include("infra")

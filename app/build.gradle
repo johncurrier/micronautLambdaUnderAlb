@@ -1,0 +1,49 @@
+buildscript {
+	ext {
+		lombokVersion = '1.18.26'
+	}
+}
+
+plugins {
+	id "com.github.johnrengelman.shadow" version "7.1.2"
+	id "io.micronaut.application" version "3.7.8"
+}
+
+version = "1.0"
+group = "com.example.fubar"
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// lombok has to go first. note that the lombok gradle plugin is not supported:
+	// https://micronaut-projects.github.io/micronaut-data/latest/guide/#buildConfig
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+
+	// note that micronaut version is specified in the micronaut {} config section below
+	annotationProcessor "io.micronaut.serde:micronaut-serde-processor"
+	implementation "io.micronaut:micronaut-jackson-databind"	// fails at Lambda startup if missing
+}
+
+application {
+	mainClass.set("com.example.fubar.Fubar")
+}
+
+java {
+	sourceCompatibility = JavaVersion.toVersion("11")
+	targetCompatibility = JavaVersion.toVersion("11")
+}
+
+graalvmNative.toolchainDetection = false
+
+micronaut {
+	runtime "lambda_java"
+	version "3.9.0"
+	testRuntime "junit5"
+	processing {
+		incremental true
+		annotations "com.example.fubar.*"
+	}
+}

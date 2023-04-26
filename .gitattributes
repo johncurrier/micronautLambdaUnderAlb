@@ -1,0 +1,12 @@
+# use default git settings unless otherwise specified
+* text=auto
+
+# convert Java files to something appropriate for your OS on checkout
+*.java text
+
+*.sh eol=lf
+*.py eol=lf
+
+Dockerfile.* eol=lf
+gradlew eol=lf
+gradle/wrapper/gradle-wrapper.properties eol=lf

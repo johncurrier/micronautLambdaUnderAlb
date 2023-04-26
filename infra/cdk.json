@@ -1,0 +1,55 @@
+{
+  "app": "../gradlew :infra:run",
+  "context": {
+    "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,
+    "@aws-cdk/core:stackRelativeExports": true,
+    "@aws-cdk/aws-lambda:recognizeVersionProps": true,
+    "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": true,
+    "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
+    "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
+    "@aws-cdk/core:target-partitions": [
+      "aws",
+      "aws-cn"
+    ],
+
+    "dev01-stack01": {
+      "accountType": "dev",
+      "vpc": "myVpc"
+    },
+
+    "dev02-stack01": {
+      "accountType": "dev",
+      "vpc": "myVpc"
+    },
+
+    "qa01-stack01": {
+      "accountType": "qa",
+      "vpc": "myVpc"
+    },
+
+    "qa01-stack02": {
+      "accountType": "qa",
+      "vpc": "myVpc"
+    },
+
+    "qa02-stack01": {
+      "accountType": "qa",
+      "vpc": "myVpc"
+    },
+
+    "qa03-stack01": {
+      "accountType": "qa",
+      "vpc": "myVpc"
+    },
+
+    "prod-stack01": {
+      "accountType": "production",
+      "vpc": "myVpc"
+    },
+
+    "prod-stack02": {
+      "accountType": "production",
+      "vpc": "myVpc"
+    }
+  }
+}
