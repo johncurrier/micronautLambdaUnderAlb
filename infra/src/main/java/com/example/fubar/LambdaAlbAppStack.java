@@ -69,7 +69,7 @@ public class LambdaAlbAppStack extends Stack {
 		// this handler seems to be unexpectedly written to be API Gateway-specific
 		String handlerClassName = "io.micronaut.function.aws.proxy.alb.ApplicationLoadBalancerFunction";
 
-		Function lambda = MicronautFunction.create(ApplicationType.FUNCTION, false, this, lambdaName)
+		Function lambda = MicronautFunction.create(ApplicationType.DEFAULT, false, this, lambdaName)
 				.functionName(lambdaName)
 				.runtime(Runtime.JAVA_17)
 				.description("Replicate response issues related to running a Micronaut Lambda under ALB")
