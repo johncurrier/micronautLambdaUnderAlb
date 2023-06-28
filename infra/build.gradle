@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-	implementation platform("io.micronaut:micronaut-bom:${micronautVersion}")
+	implementation platform("io.micronaut.platform:micronaut-platform:${micronautVersion}")
 	implementation "io.micronaut.starter:micronaut-starter-aws-cdk:${micronautVersion}"
 	implementation "software.amazon.awssdk:lambda:2.20.51"
 
