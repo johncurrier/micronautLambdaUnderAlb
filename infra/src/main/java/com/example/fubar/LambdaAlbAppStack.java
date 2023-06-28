@@ -67,7 +67,7 @@ public class LambdaAlbAppStack extends Stack {
 		String lambdaName = createName(config.getEnv(), null, null);
 
 		// this handler seems to be unexpectedly written to be API Gateway-specific
-		String handlerClassName = "io.micronaut.function.aws.proxy.MicronautLambdaHandler";
+		String handlerClassName = "io.micronaut.function.aws.proxy.alb.ApplicationLoadBalancerFunction";
 
 		Function lambda = MicronautFunction.create(ApplicationType.FUNCTION, false, this, lambdaName)
 				.functionName(lambdaName)
