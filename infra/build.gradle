@@ -6,7 +6,7 @@
 
 buildscript {
 	ext {
-		micronautVersion = '3.9.0'
+		micronautVersion = '4.0.0-M4'
 	}
 }
 

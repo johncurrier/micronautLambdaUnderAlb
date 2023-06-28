@@ -40,7 +40,7 @@ graalvmNative.toolchainDetection = false
 
 micronaut {
 	runtime "lambda_java"
-	version "3.9.0"
+	version "4.0.0-M4"
 	testRuntime "junit5"
 	processing {
 		incremental true
