@@ -24,7 +24,7 @@ repositories {
 
 dependencies {
 	implementation platform("io.micronaut:micronaut-bom:${micronautVersion}")
-	implementation "io.micronaut.aws:micronaut-aws-cdk:${micronautVersion}"
+	implementation "io.micronaut.starter:micronaut-starter-aws-cdk:${micronautVersion}"
 	implementation "software.amazon.awssdk:lambda:2.20.51"
 
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
