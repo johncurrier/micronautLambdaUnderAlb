@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-- Java 11
+- Java 17
 - [AWS CLI](https://aws.amazon.com/cli/)
 - [CDK CLI](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)
 
