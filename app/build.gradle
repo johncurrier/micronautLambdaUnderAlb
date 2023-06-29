@@ -5,8 +5,8 @@ buildscript {
 }
 
 plugins {
-	id "com.github.johnrengelman.shadow" version "7.1.2"
-	id "io.micronaut.application" version "3.7.8"
+	id("com.github.johnrengelman.shadow") version "8.1.1"
+	id("io.micronaut.application") version "4.0.0-M6"
 }
 
 version = "1.0"
@@ -32,15 +32,15 @@ application {
 }
 
 java {
-	sourceCompatibility = JavaVersion.toVersion("11")
-	targetCompatibility = JavaVersion.toVersion("11")
+	sourceCompatibility = JavaVersion.toVersion("17")
+	targetCompatibility = JavaVersion.toVersion("17")
 }
 
 graalvmNative.toolchainDetection = false
 
 micronaut {
 	runtime "lambda_java"
-	version "3.9.0"
+	version "4.0.0-M4"
 	testRuntime "junit5"
 	processing {
 		incremental true

@@ -17,6 +17,7 @@ import software.amazon.awscdk.services.iam.RoleProps;
 import software.amazon.awscdk.services.iam.ServicePrincipal;
 import software.amazon.awscdk.services.lambda.*;
 import software.amazon.awscdk.services.lambda.CfnFunction.SnapStartProperty;
+import software.amazon.awscdk.services.lambda.Runtime;
 import software.amazon.awscdk.services.logs.RetentionDays;
 import software.constructs.Construct;
 
@@ -66,10 +67,11 @@ public class LambdaAlbAppStack extends Stack {
 		String lambdaName = createName(config.getEnv(), null, null);
 
 		// this handler seems to be unexpectedly written to be API Gateway-specific
-		String handlerClassName = "io.micronaut.function.aws.proxy.MicronautLambdaHandler";
+		String handlerClassName = "io.micronaut.function.aws.proxy.alb.ApplicationLoadBalancerFunction";
 
-		Function lambda = MicronautFunction.create(ApplicationType.FUNCTION, false, this, lambdaName)
+		Function lambda = MicronautFunction.create(ApplicationType.DEFAULT, false, this, lambdaName)
 				.functionName(lambdaName)
+				.runtime(Runtime.JAVA_17)
 				.description("Replicate response issues related to running a Micronaut Lambda under ALB")
 				.handler(handlerClassName)
 				.environment(envVars)

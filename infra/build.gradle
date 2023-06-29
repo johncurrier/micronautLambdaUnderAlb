@@ -6,7 +6,7 @@
 
 buildscript {
 	ext {
-		micronautVersion = '3.9.0'
+		micronautVersion = '4.0.0-M4'
 	}
 }
 
@@ -23,16 +23,16 @@ repositories {
 }
 
 dependencies {
-	implementation platform("io.micronaut:micronaut-bom:${micronautVersion}")
-	implementation "io.micronaut.aws:micronaut-aws-cdk:${micronautVersion}"
+	implementation platform("io.micronaut.platform:micronaut-platform:${micronautVersion}")
+	implementation "io.micronaut.starter:micronaut-starter-aws-cdk:${micronautVersion}"
 	implementation "software.amazon.awssdk:lambda:2.20.51"
 
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
 }
 
 java {
-	sourceCompatibility = JavaVersion.toVersion("11")
-	targetCompatibility = JavaVersion.toVersion("11")
+	sourceCompatibility = JavaVersion.toVersion("17")
+	targetCompatibility = JavaVersion.toVersion("17")
 }
 
 application {
